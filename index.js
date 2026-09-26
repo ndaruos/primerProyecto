@@ -3,10 +3,11 @@ const express = require('express');
 const cors = require('cors'); // <--- 1. Requerimos la librería CORS
 
 //Del siguiente modo declaramos app como un server, lo instanciamos. Esto permite a express manejar las rutas y peticiones HTTP que le enviamos. 
+//Para instalar cors hay que ir a la ruta donde tenemos nuestro proyecto y ejecutar: npm i cors
 const app = express();
 
 //Habilitamos CORS para que acepte peticiones desde cualquier origen (Web o Mobile)
-app.use(cors()); // <--- 2. Activamos el middleware de CORS aquí
+app.use(cors()); 
 
 //A través de la función express.json() trabajamos la información en formato JSON.
 app.use(express.json());
