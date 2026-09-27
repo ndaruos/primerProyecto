@@ -7,15 +7,22 @@ const service = require('../services/productosService');
 
 console.log("CONTROLADOR")
 
-const obtenerTodos = (req,res) => {
+const obtenerTodos = async (req,res) => {
 
 
     //Validación previo a la base de datos, así llevo la info allí con todo OK, verificado. 
 
     //Aca se Llama a la función obtenerTodos() del archivo productosService.js y La variable productos almacena 
-    // el resultado que retorna el servicio (en nuestro caso, el arreglo de objetos de productos).
-    const productos = service.obtenerTodos();
-    res.json(productos);
+    // el resultado que retorna el servicio (en nuestro caso, el arreglo de objetos de productos).    
+    // const productos = service.obtenerTodos();
+    // res.json(productos);
+
+    try {
+    const data = await service.obtenerTodos();
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: 'Error al obtener' });
+  }
 };
 
 const obtenerUltimo = (req,res) => {

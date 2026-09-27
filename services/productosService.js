@@ -1,5 +1,7 @@
 //De momento solo vamos a agregar una lista de objetos hardcodeados. No tenemos la BBDD aún.  
 
+const supabase = require("../config/supabase");
+
 // Los datos — hoy hardcodeados
 const productos = [
   { id: 1, nombre: 'Notebook', precio: 500000 },
@@ -10,9 +12,15 @@ const productos = [
 console.log("SERVICIO")
 
 // Devolver todos
-const obtenerTodos = () => {
-    return productos
+const obtenerTodos = async() => {
+    //return productos
+    const { data, error } = await supabase
+    .from('producto')
+    .select('*');
+    if (error) throw error;
+    return data;
 };
+
 
 
 //No olvidar de exportar la función. 

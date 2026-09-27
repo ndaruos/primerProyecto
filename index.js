@@ -9,6 +9,9 @@ const app = express();
 //Habilitamos CORS para que acepte peticiones desde cualquier origen (Web o Mobile). 
 app.use(cors()); 
 
+//Habilitamos dotenv para las variables de entorno o globales donde tendremos nuestras credenciales que NO viajarán a GitHub por el .gitignore. 
+require('dotenv').config();
+
 //A través de la función express.json() trabajamos la información en formato JSON.
 app.use(express.json());
 
@@ -20,7 +23,7 @@ app.get('/', (req, res) => {
   res.json({ mensaje: 'Servidor funcionando ✅' });
 });
 
-//Del siguiente modo puedo crear una API que devuelva un listado de productos: 
+//Del siguiente modo puedo crear una API que devuelva un listado de productos:
 
 // Registrar el enrutador de productos
 // Todo lo que llegue a /api/productos
