@@ -26,6 +26,10 @@ console.log("ENRUTADOR")
 // ctrl.obtenerTodos() --> Ejecutás las instrucciones ya mismo, en el momento en que se procesa esa línea de código.
 router.get('/', ctrl.obtenerTodos);
 router.get('/ultimo', ctrl.obtenerUltimo);
+router.get('/:id', ctrl.obtenerPorId);
+router.post('/crear', ctrl.crear)
+router.post('/eliminar', ctrl.eliminar)
+router.post('/actualizar', ctrl.actualizar)
 
 //Tener en cuenta que "obtenerTodos" es una función que va a estar ubicada en el archivo productosController.js
 
