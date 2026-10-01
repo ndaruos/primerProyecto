@@ -47,5 +47,5 @@ app.listen(3000, () => {
 
 
 
-//Finalmente vamos a terminal y levantamos el server mediante el comando: npm run dev
+//Finalmente vamos a terminal y levantamos el server mediante el comando: npm run dev.
 //Si queremos guardar cualquier cambio vamos a ver que el server se reinicia y guarda los cambios (esto gracias al nodemon).
