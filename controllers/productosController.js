@@ -19,15 +19,16 @@ const obtenerTodos = async (req,res) => {
 
     try {
     const data = await service.obtenerTodos();
-    res.json(data);
+    return res.json(data);
   } catch (e) {
-    res.status(500).json({ error: 'Error al obtener' });
+    return res.status(500).json({ error: 'Error al obtener todos los productos de la tabla' });
   }
 };
 
 const obtenerPorId = async (req,res) => {
 
   console.log(req.params)
+  console.log("Este es el ID que envié como parámetro desde Postman o App Mobile: " + req.params.id)
 
   try{
 
@@ -63,7 +64,7 @@ const crear = async (req,res) => {
 
 const eliminar = async (req,res) => {
 
-  console.log(req.body);
+  console.log("El código a eliminar es el: " + req.body.prod_codigo);
 
   try{
 
