@@ -64,7 +64,7 @@ const crear = async (req,res) => {
 
 const eliminar = async (req,res) => {
 
-  console.log("El código a eliminar es el: " + req.body.prod_codigo);
+  console.log(req.body.prod_codigo);
 
   try{
 
