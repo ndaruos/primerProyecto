@@ -98,6 +98,28 @@ const actualizar = async (req,res) => {
 
 }
 
+
+const actualizarTodo = async (req, res) => {
+
+console.log("Controlador recibe req.body: ")
+console.log(req.body);
+
+try{
+
+  const data = await service.actualizarTodo(req.body)
+  return res.status(200).json(data)
+} 
+
+catch(error){
+
+  console.log(error)
+  return res.status(500).json({error:'Error al actualizar precio y nombre del artículo.'})
+
+}
+
+
+}
+
 const obtenerUltimo = (req,res) => {
 
    
@@ -105,4 +127,4 @@ const obtenerUltimo = (req,res) => {
 
 
 // Exportar todas las funciones
-module.exports = { obtenerTodos, obtenerUltimo, obtenerPorId, crear, eliminar, actualizar };
+module.exports = { obtenerTodos, obtenerUltimo, obtenerPorId, crear, eliminar, actualizar, actualizarTodo };

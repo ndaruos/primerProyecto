@@ -30,6 +30,7 @@ router.get('/:id', ctrl.obtenerPorId);
 router.post('/crear', ctrl.crear)
 router.post('/eliminar', ctrl.eliminar)
 router.post('/actualizar', ctrl.actualizar)
+router.post('/actualizarTodo', ctrl.actualizarTodo)
 
 //Tener en cuenta que "obtenerTodos" es una función que va a estar ubicada en el archivo productosController.js
 

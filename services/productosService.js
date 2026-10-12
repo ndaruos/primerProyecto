@@ -67,5 +67,23 @@ const actualizar = async(producto) => {
     return data
 }
 
+const actualizarTodo = async(producto) => {
+    console.log("Servicio Recibe: ")
+    console.log("Producto Descripción: ", producto.prod_descripcion)
+    console.log("Producto Precio: ", producto.prod_precio)
+
+    const {data, error} = await supabase
+    .from('producto')
+    .update({
+        'prod_descripcion': producto.prod_descripcion,
+        'prod_precio': producto.prod_precio,
+    })
+    .eq('prod_codigo',producto.prod_codigo)
+    .select()
+
+    if (error) throw error
+    return data
+}
+
 //No olvidar de exportar la función. 
-module.exports = { obtenerTodos, obtenerPorId, crear, eliminar, actualizar };
+module.exports = { obtenerTodos, obtenerPorId, crear, eliminar, actualizar, actualizarTodo };
